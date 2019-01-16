@@ -37,6 +37,9 @@ let operator = (store) => {
         },
         splice(index) {
             store.commit("bread/splice", index);
+        },
+        getBread() {
+            return store.state.bread.breadNav;
         }
     }
 };

@@ -9,14 +9,12 @@ let store = {
     state: {},
     actions: {
         loadDicItem(context, dicType) {
-            if (!context.state[dicType]) {
-                getDicByType(dicType).then(({body}) => {
-                    const {code, msg, data} = body;
-                    if ("000000" === code) {
-                        context.commit("updateDic", {dicType, data});
-                    }
-                })
-            }
+            getDicByType(dicType).then(({body}) => {
+                const {code, msg, data} = body;
+                if ("000000" === code) {
+                    context.commit("updateDic", {dicType, data});
+                }
+            })
         }
     },
     mutations: {
@@ -27,16 +25,14 @@ let store = {
 };
 let operator = (store) => {
     return {
-        loadDicItem(dicType) {
+        reloadDicItem(dicType) {
             store.dispatch("dic/loadDicItem", dicType);
         },
         getDicItem(dicType) {
-            if(store) {
+            if (!store.state.dic[dicType]) {
                 store.dispatch("dic/loadDicItem", dicType);
-                return store.state.dic[dicType];
-            }else{
-                return {}
             }
+            return store.state.dic[dicType];
         }
     }
 };

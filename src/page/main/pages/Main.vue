@@ -43,25 +43,17 @@
 <script>
 
     import MenuItem from './MenuItem';
-    import Service from '../config/api';
 
     export default {
         data() {
             return {
                 isCollapse: false,//是否折叠
-                menuList: [],
                 scrollBarParam: {
                     createElements: false
                 },
             }
         },
         created() {
-            Service.getUserMenu().then(({body}) => {
-                const {code, data, msg} = body;
-                if ("000000" === code) {
-                    this.menuList = this.$util.generateTree(data);
-                }
-            });
             this.$bread.set([
                 {
                     name: "首页"
@@ -73,8 +65,11 @@
         },
         computed: {
             breadList() {
-                return this.$store.state.bread.breadNav;
+                return this.$bread.getBread();
             },
+            menuList() {
+                return this.$menu.getMenu();
+            }
         },
         methods: {
             breadClick(item, index) {
@@ -106,7 +101,7 @@
                         this.scrollBarParam.instance.update();
                     }, 400);
                 }
-            }
+            },
         },
     }
 </script>

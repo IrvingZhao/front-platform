@@ -24,7 +24,6 @@
             // }
         },
         mounted() {
-            console.info("mounted");
             // this.$store.dispatch("initTest");
         }
 

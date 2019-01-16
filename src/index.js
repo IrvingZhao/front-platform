@@ -5,7 +5,6 @@ import ElementUI from 'element-ui';
 import 'element-ui/packages/theme-chalk/src/index.scss';
 
 import XlbPlugin from 'xlb-plugin';
-// import 'xlb-plugin/package/static/style.css';
 
 import StoreConfig from './config/store';
 import RouterConfig from './config/router';
