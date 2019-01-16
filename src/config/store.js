@@ -4,11 +4,12 @@ import Vuex from 'vuex';
 import DicStore from './stores/dicStore';
 import BreadStore from './stores/breadStore';
 import MenuStore from './stores/menuStore';
+import OperatorStore from './stores/operatorStore';
 
 Vue.use(Vuex);
 
 let stores = [
-    DicStore, BreadStore, MenuStore
+    DicStore, BreadStore, MenuStore, OperatorStore
 ];
 
 let store;
