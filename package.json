@@ -1,21 +1,29 @@
 {
   "name": "xlb-platform",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.0-beat1",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "element-ui": "latest",
     "vue": "^2.5.21",
+    "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "xlb-plugin": "0.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",
     "@vue/cli-service": "^3.3.0",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.21"
+  },
+  "publishConfig": {
+    "registry": "http://mvn.gaogeche.cn/repository/xlb-npm-primary/"
   }
 }

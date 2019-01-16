@@ -1,0 +1,31 @@
+.DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# 开发使用内容
+/public/
+/example/
+babel.config.js
+postcss.config.js
+vue.config.js
+.browserslistrc
+# 测试打包
+*.tgz

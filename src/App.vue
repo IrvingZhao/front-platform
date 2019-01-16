@@ -1,29 +1,36 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+    <router-view></router-view>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+    export default {
+        name: "app",
+        components: {
+            // MainPage
+        },
+        data() {
+            // console.info(this.$store)
+            return {
+                // test: this.$store.state.test
+            }
+        },
+        created() {
+            //TODO  create时，进行数据请求，computed 进行数据读取计算，用于 字典项，参数等公共数据
+            //TODO 检查用户状态，正常，则不做处理，异常，跳转登录页
+        },
+        computed: {
+            // test() {
+            //   return this.$store.state.test;
+            // }
+        },
+        mounted() {
+            console.info("mounted");
+            // this.$store.dispatch("initTest");
+        }
+
     }
-  }
-}
+</script>
+
+<style scoped>
+
 </style>
