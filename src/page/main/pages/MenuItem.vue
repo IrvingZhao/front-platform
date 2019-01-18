@@ -1,12 +1,12 @@
 <template>
-  <sub-menu-mock v-if="menuData.children" :index="menuData.id" :route="menuData.routerName">
+  <sub-menu-mock v-if="menuData.children" :index="menuData.id" :route="menuData.path">
     <template slot="title">
       <i class="el-icon-my-menu"></i>
       <span class="menu-title">{{menuData.name}}</span>
     </template>
     <menu-item v-for="(childMenu,index) in menuData.children" :menu-data="childMenu" :key="index"></menu-item>
   </sub-menu-mock>
-  <menu-item-mock :route="menuData.routerName" :index="menuData.id" v-else>
+  <menu-item-mock :route="menuData.path" :index="menuData.id" v-else>
     <i v-if="menuData.icon" :class="menuData.icon"></i>
     <span class="menu-title-text" slot="title">{{menuData.name}}</span>
   </menu-item-mock>

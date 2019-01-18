@@ -85,7 +85,7 @@
             },
             menuSelect(menuIndex, menuIndexTree, component) {
                 if (component.route) {
-                    this.$router.push({name: component.route});
+                    this.$router.push(component.route);
                 }
             },
             menuOpen() {
