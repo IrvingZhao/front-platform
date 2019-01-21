@@ -19,15 +19,13 @@ let store = {
     },
     mutations: {
         updateDic(state, {dicType, data}) {
-            if (!state[dicType]) {
-                Vue.set(state, dicType, {});
-            }
             let dicMap = {};
             data.forEach((item) => {
                 dicMap[item.key] = item.value;
             });
-            Vue.set(state[dicType], "list", data);
-            Vue.set(state[dicType], "map", dicMap);
+            Vue.set(state, dicType, true);
+            Vue.set(state, dicType + "_map", dicMap);
+            Vue.set(state, dicType + "_list", data);
         }
     }
 };
@@ -40,13 +38,13 @@ let operator = (store) => {
             if (!store.state.dic[dicType]) {
                 store.dispatch("dic/loadDicItem", dicType);
             }
-            return store.state.dic[dicType].map;
+            return store.state.dic[dicType + "_map"];
         },
         getDicItemArray(dicType) {
             if (!store.state.dic[dicType]) {
                 store.dispatch("dic/loadDicItem", dicType);
             }
-            return store.state.dic[dicType].list;
+            return store.state.dic[dicType + "_list"];
         }
     }
 };
