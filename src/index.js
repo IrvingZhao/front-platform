@@ -1,7 +1,3 @@
-import Vue from 'vue';
-import ElementUI from 'element-ui';
-import 'element-ui/packages/theme-chalk/src/index.scss';
-
 import './config/api';
 import XlbPlugin from 'xlb-plugin';
 
@@ -13,20 +9,28 @@ import App from './App';
 import './assets/style/index.scss';
 import './assets/style/iconfont.scss';
 
-Vue.use(ElementUI);
-Vue.use(StoreConfig);
-Vue.use(XlbPlugin);
-
 export default {
-    getVue(routes) {
+    // getVue(routes) {
+    //     let router = RouterConfig.getRouter(routes);
+    //     let store = StoreConfig.getStore();
+    //
+    //     return new Vue({
+    //         router,
+    //         render: h => h(App),
+    //         store
+    //     });
+    // },
+    getVueConfig(routes) {
         let router = RouterConfig.getRouter(routes);
         let store = StoreConfig.getStore();
-
-        return new Vue({
+        return {
             router,
+            store,
             render: h => h(App),
-            store
-        });
+        }
+    },
+    install(Vue) {
+        Vue.use(StoreConfig);
+        Vue.use(XlbPlugin);
     }
-
 }

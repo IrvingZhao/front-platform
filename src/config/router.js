@@ -43,7 +43,7 @@ const getRouter = (routes) => {
         routerConfig.push(rootRouteConfig);
 
         router = new VueRouter({
-            mode: "history",
+            mode: "hash",
             routes: routerConfig
         });
         router.beforeEach((to, from, next) => {
